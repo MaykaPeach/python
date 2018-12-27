@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>{{ object.title }}</h2>
+    <p> <strong> Название:</strong> {{ purchase.name }}</p>
+    <p> <strong> Необходимая сумма:</strong> {{ purchase.allCash }} у.е.</p>
+    <p> <strong> Текущая сумма:</strong> {{ purchase.nowCash }} у.е.</p>
+    <p> <strong> Статус:</strong> {{ purchase.status }} </p>
+    <p> <strong> Автор:</strong>  {{ purchase.id_author }}</p>
+{% endblock %}

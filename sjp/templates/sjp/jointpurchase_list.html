@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+    <ul class="list-group">
+        {% for jointpurchase in object_list %}
+            <li class="list-group-item"><a href="{% url 'sjp:joint-purchase-detail' jointpurchase.pk %}">{{ jointpurchase.id_user }} - {{ jointpurchase.id_purchase }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

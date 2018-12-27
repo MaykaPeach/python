@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+<h2 class="text-center"> Приветик, {{ user.name }}! С возвращением!</h2>
+    <p> <strong> Ваш баланс :</strong> {{ user.balance }} у.е.</p>
+ <!-- Не отображает ничего! -->
+    {% if purchases %}
+    <p> <strong> Ваш список авторских закупок :</strong> </p>
+        <ul class="list-group">
+            {% for purchase in purchases %}
+                <li class="list-group-item"> <strong> Название покупки:</strong> {{purchase.name}}</li>
+                <li class="list-group-item"> <strong> Необходимая сумма:</strong> {{ purchase.allCash }} у.е.</li>
+                <li class="list-group-item"> <strong> Текущая сумма:</strong> {{ purchase.nowCash }} у.е.</li>
+                <br>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h5>пока ничего...</h5>
+    {% endif %}
+{% else %}
+    <h1 class="text-center">Приветик, аноним!</h1>
+    <p>Пожалуйста, войдите или зарегистрируйтесь</p>
+{% endif %}
+{% endblock content %}
